@@ -8,6 +8,7 @@ public class RestProjectWithSpringBootJavaReactjsApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(RestProjectWithSpringBootJavaReactjsApplication.class, args);
+
 		
 	}
 
