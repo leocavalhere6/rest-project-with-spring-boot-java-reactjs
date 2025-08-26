@@ -1,0 +1,39 @@
+version: '3.9'
+
+services:
+  app:
+    image: rest-project-with-spring-boot-java-reactjs
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: rest-project-app
+    environment:
+      TZ: America/Sao_Paulo
+      SPRING_DATASOURCE_URL: jdbc:mysql://<SEU_HOST_DO_REPLIT>:3306/<SEU_BANCO>?useTimezone=true&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: <SEU_USUARIO>
+      SPRING_DATASOURCE_PASSWORD: <SUA_SENHA>
+      SPRING_MAIL_USERNAME: ${EMAIL_USERNAME}
+      SPRING_MAIL_PASSWORD: ${EMAIL_PASSWORD}
+    ports:
+      - "8081:8081"
+    networks:
+      - rest-network
+
+  portainer:
+    image: portainer/portainer-ce:latest
+    container_name: portainer
+    restart: always
+    ports:
+      - "9000:9000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+    networks:
+      - rest-network
+
+volumes:
+  portainer_data:
+
+networks:
+  rest-network:
+    driver: bridge
