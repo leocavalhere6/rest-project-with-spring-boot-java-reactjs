@@ -12,8 +12,8 @@ import java.util.List;
 @Tag(name = "File Endpoint")
 public interface FileControllerDocs {
 
-  UploadFileResponseDTO uploadFile(MultipartFile file);
-  List<UploadFileResponseDTO> uploadMultipleFiles(MultipartFile[] files);
-  ResponseEntity<Resource> downloadFile(String fileName,
-                      HttpServletRequest request);
+    UploadFileResponseDTO uploadFile(MultipartFile file);
+    List<UploadFileResponseDTO> uploadMultipleFiles(MultipartFile[] files);
+    ResponseEntity<Resource> downloadFile(String fileName,
+                                          HttpServletRequest request);
 }
