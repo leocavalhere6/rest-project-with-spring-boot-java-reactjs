@@ -1,0 +1,71 @@
+server:
+  port: 8081 # Porta separada para testes
+
+spring:
+  application:
+    name: rest-project-tests
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${EMAIL_USERNAME}  # variável de ambiente
+    password: ${EMAIL_PASSWORD}  # variável de ambiente
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+      mail.smtp.starttls.required: true
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://<SEU_HOST_DO_REPLIT>:3306/<NOME_DO_BANCO>?useTimezone=true&serverTimezone=UTC
+    username: <SEU_USUARIO>
+    password: <SUA_SENHA>
+
+  jpa:
+    hibernate:
+      ddl-auto: update # atualiza o esquema automaticamente para testes
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+    show-sql: true
+    open-in-view: false
+
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    locations: classpath:db/migration
+
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 50MB
+      max-request-size: 55MB
+
+logging:
+  level:
+    root: WARN
+    org.springframework: INFO
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql: TRACE
+
+cors:
+  originPatterns: http://localhost:8080,http://localhost:3000
+
+file:
+  upload-dir: ${java.io.tmpdir}/UploadDirTest
+
+security:
+  jwt:
+    token:
+      secret-key: test-secret
+      expire-lenght: 60000 # 1 minuto apenas para testes
+
+email:
+  subject: "Test Email"
+  message: "This is a test email from Spring Boot"
+  enabled: true # ativa envio de email
+  to: "leocavalhere6@gmail.com"
+
+spring-doc:
+  enabled: true # Swagger ativo  
