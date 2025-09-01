@@ -1,6 +1,12 @@
+language = "java"
+
+run = "mvn clean spring-boot:run"
+
 [nix]
-channel = "stable-25_05"
+packages = ["maven", "zulu", "mysql84", "docker", "mysql"]
 
-packages = ["maven"]
+modules = ["java-graalvm22.3"]
 
-run = "mvn spring-boot:run"
+[[ports]]
+localPort = 3306
+externalPort = 3000

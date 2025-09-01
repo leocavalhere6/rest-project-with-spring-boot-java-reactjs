@@ -10,8 +10,9 @@ import java.util.List;
 import java.util.Objects;
 
 
-@Relation(collectionRelation = "people") {
-  public class PersonDTO extends RepresentationModel<PersonDTO> implements Serializable {
+@Relation(collectionRelation = "people")
+public class PersonDTO extends RepresentationModel<PersonDTO> implements Serializable {
+
     private static final long serialVersionUID = 1L;
 
     private Long id;
@@ -27,97 +28,96 @@ import java.util.Objects;
     @JsonIgnore
     private List<Book> books;
 
-    public PersonDTO() {
-      
-    }
+    public PersonDTO() {}
 
     public Long getId() {
-      return id;
+        return id;
     }
 
     public void setId(Long id) {
-      this.id = id;
+        this.id = id;
     }
 
     public String getFirstName() {
-      return firstName;
+        return firstName;
     }
 
     public void setFirstName(String firstName) {
-      this.firstName = firstName;
+        this.firstName = firstName;
     }
-    
-    publid String getLastName() {
-      return lastName;
+
+    public String getLastName() {
+        return lastName;
     }
 
     public void setLastName(String lastName) {
-      this.lastName = lastName;
+        this.lastName = lastName;
     }
 
     public String getAddress() {
-      return address;
+        return address;
     }
 
     public void setAddress(String address) {
-      this.address = address;
+        this.address = address;
     }
 
     public String getGender() {
-      return gender;
+        return gender;
     }
 
     public void setGender(String gender) {
-      this.gender = gender;
+        this.gender = gender;
     }
 
     public Boolean getEnabled() {
-      return enabled;
+        return enabled;
     }
 
     public void setEnabled(Boolean enabled) {
-      this.enabled = enabled;
+        this.enabled = enabled;
     }
 
     @JsonIgnore
-    public String getName() {
-      return firstName != null ? firstName : "") +
-        (lastName != null ? lastName : "");
+    public String getName(){
+        return (firstName != null ? firstName : "") +
+            (lastName != null ? " " + lastName : "");
     }
 
     public String getProfileUrl() {
-      return profileUrl;
+        return profileUrl;
     }
 
     public void setProfileUrl(String profileUrl) {
-      this.profileUrl = profileUrl;
+        this.profileUrl = profileUrl;
     }
 
     public String getPhotoUrl() {
-      return photoUrl;
+        return photoUrl;
     }
 
-    public List<book> getBooks() {
-      return books;
+    public void setPhotoUrl(String photoUrl) {
+        this.photoUrl = photoUrl;
+    }
+
+    public List<Book> getBooks() {
+        return books;
     }
 
     public void setBooks(List<Book> books) {
-      this.books = books;
+        this.books = books;
     }
 
     @Override
     public boolean equals(Object o) {
-      if (o == null || getClass() != o.getClass()) return false;
-      if (!super.equals(o)) return false;
-      PersonDTO personDTO = (PersonDTO) o;
-      return Objects.equals(getId(), personDTO.getId()) && Objects.equals(getFirstName(), personDTO.getFirstName()) && Objects.equals(getLastName(), personDTO.getLastName()) && Objects.equals(getAddress(), personDTO.getAddress()) && Objects.equals(getGender(), personDTO.getGender()) && Objects.equals(getEnabled(), personDTO.getEnabled()) && Objects.equals(getProfileUrl(), personDTO.getProfileUrl()) && Objects.equals(getPhotoUrl(), personDTO.getPhotoUrl()) && Objects.equals(getBooks(), personDTO.getBooks());
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        PersonDTO personDTO = (PersonDTO) o;
+        return Objects.equals(getId(), personDTO.getId()) && Objects.equals(getFirstName(), personDTO.getFirstName()) && Objects.equals(getLastName(), personDTO.getLastName()) && Objects.equals(getAddress(), personDTO.getAddress()) && Objects.equals(getGender(), personDTO.getGender()) && Objects.equals(getEnabled(), personDTO.getEnabled()) && Objects.equals(getProfileUrl(), personDTO.getProfileUrl()) && Objects.equals(getPhotoUrl(), personDTO.getPhotoUrl()) && Objects.equals(getBooks(), personDTO.getBooks());
     }
 
     @Override
-
     public int hashCode() {
-      return Objects.hash(super.hashCode(), getId(), getFirstName(), getLastName(), getAddress(), getGender(), getEnabled(), getProfileUrl(), getPhotoUrl(), getBooks());
-      }
-    }    
-  }
+        return Objects.hash(super.hashCode(), getId(), getFirstName(), getLastName(), getAddress(), getGender(), getEnabled(), getProfileUrl(), getPhotoUrl(), getBooks());
+    }
 }

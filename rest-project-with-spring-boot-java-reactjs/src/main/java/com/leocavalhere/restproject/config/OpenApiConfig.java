@@ -6,22 +6,21 @@ import io.swagger.v3.oas.models.info.License;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-
 @Configuration
 public class OpenApiConfig {
-  
-  @Bean
-    OpenAPI customOpenAPI(){
-        .info(new Info()
-          .title("RESTful API with Java 17 and Spring Boot 3")
-          .version("v1")
-          .description("RESTful API with Java 17 and Spring Boot 3")
-              .termsOfService("https://github.com/leocavalhere/rest-project-with-spring-boot-java-reactjs")
-              .license(new License()
-                       .name("Apache 2.0")
-                       .url("https://github.com/leocavalhere/rest-project-with-spring-boot-java-reactjs")
-                       )
-              )
-  }
-  
+
+    @Bean
+    public OpenAPI customOpenAPI() {
+        return new OpenAPI()
+                .info(new Info()
+                        .title("RESTful API with Java 17 and Spring Boot 3")
+                        .version("v1")
+                        .description("RESTful API with Java 17 and Spring Boot 3")
+                        .termsOfService("https://github.com/leocavalhere/rest-project-with-spring-boot-java-reactjs")
+                        .license(new License()
+                                .name("Apache 2.0")
+                                .url("https://github.com/leocavalhere/rest-project-with-spring-boot-java-reactjs")
+                        )
+                );
+    }
 }
