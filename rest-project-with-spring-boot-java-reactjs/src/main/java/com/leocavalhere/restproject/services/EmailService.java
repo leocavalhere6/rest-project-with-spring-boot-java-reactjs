@@ -53,6 +53,6 @@ public class EmailService {
          throw new RuntimeException("Error processing the attachment!", e);
        } finally {
          if (tempFile != null && tempFile.exists()) tempFile.delete();
-       }.
+       }
    }
 }

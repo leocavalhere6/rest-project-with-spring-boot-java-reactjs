@@ -44,9 +44,11 @@ import java.util.Objects;
 
     @Override
     public boolean equals(Object o) {
+      if (this == o) return true;
       if (o == null || getClass() != o.getClass()) return false;
       Permission that = (permission) o;
-      return Objects.equals(getId(), that.getId() && Objects.equals(getDescription(), that.getDescription());
+      return Objects.equals(getId(), that.getId()) &&
+          Objects.equals(getDescription(), that.getDescription());
     }
 
     @Override

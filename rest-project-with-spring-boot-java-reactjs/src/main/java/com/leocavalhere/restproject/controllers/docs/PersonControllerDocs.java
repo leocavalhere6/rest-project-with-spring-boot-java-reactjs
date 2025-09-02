@@ -1,7 +1,7 @@
 package com.leocavalhere.restproject.controllers.docs;
 
 import com.leocavalhere.restproject.data.dto.PersonDTO;
-import com.leocavalhere.restproject.util.MediaTypes;.
+import com.leocavalhere.restproject.util.MediaTypes;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
