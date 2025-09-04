@@ -1,4 +1,4 @@
-package com.leocavalhere.restproject.data.model;
+package com.leocavalhere.restproject.model;
 
 import jakarta.persistence.*;
 

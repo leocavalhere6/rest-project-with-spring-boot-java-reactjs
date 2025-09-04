@@ -1,4 +1,4 @@
-package com.leocavalhere.restproject.exception.handler;
+package com.leocavalhere.restproject.exception.hadler;
 
 import com.leocavalhere.restproject.exception.*;
 import org.springframework.http.HttpStatus;

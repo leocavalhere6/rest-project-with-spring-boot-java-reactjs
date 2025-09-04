@@ -1,4 +1,4 @@
-package com.leocavalhere.restproject.file.factory;
+package com.leocavalhere.restproject.file.exporter.factory;
 
 import com.leocavalhere.restproject.exception.BadRequestException;
 import com.leocavalhere.restproject.file.exporter.MediaTypes;

@@ -1,4 +1,4 @@
-package br.com.leocavalhere.restproject.exception;
+package com.leocavalhere.restproject.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

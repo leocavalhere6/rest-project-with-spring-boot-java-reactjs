@@ -1,4 +1,4 @@
-package br.com.leocavalhere.restproject.data;
+package com.leocavalhere.restproject.data;
 
 import org.springframework.hateoas.RepresentationModel;
 import org.springframework.hateoas.server.core.Relation;

@@ -1,4 +1,4 @@
-package com.leocavalhere.restproject.file.contract;
+package com.leocavalhere.restproject.file.exporter.contract;
 
 import com.leocavalhere.restproject.data.dto.PersonDTO;
 import org.springframework.core.io.Resource;
