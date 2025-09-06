@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './styles.css';
 
-import api from '../../services./api'
+import api from '../../services/api'
 
 import logoImage from '../../assets/logo.svg'
 import padlock from '../../assets/padlock.png'
@@ -12,7 +12,7 @@ export default function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
-    const history = useHistory();
+    const navigate = useNavigate();
 
     async function login(e) {
         e.preventDefault();

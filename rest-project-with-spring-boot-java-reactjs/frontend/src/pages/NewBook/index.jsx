@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { FiPower, FiEdit, FitTrash2 } from 'react-icons/fi';
+import { FiPower, FiEdit, FiTrash2 } from 'react-icons/fi';
 
 import api from '../../services/api';
 import './styles.css';
