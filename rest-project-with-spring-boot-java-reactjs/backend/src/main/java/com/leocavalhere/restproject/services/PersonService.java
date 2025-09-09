@@ -1,7 +1,7 @@
 package com.leocavalhere.restproject.services;
 
 import com.leocavalhere.restproject.controllers.PersonController;
-import com.leocavalhere.restproject.data.dto.PersonDTO;
+import com.leocavalhere.restproject.data.PersonDTO;
 import com.leocavalhere.restproject.exception.BadRequestException;
 import com.leocavalhere.restproject.exception.FileStorageException;
 import com.leocavalhere.restproject.exception.RequiredObjectIsNullException;

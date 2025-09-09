@@ -1,6 +1,6 @@
 package com.leocavalhere.restproject.controllers.docs;
 
-import com.leocavalhere.restproject.data.dto.BookDTO;
+import com.leocavalhere.restproject.data.*;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;

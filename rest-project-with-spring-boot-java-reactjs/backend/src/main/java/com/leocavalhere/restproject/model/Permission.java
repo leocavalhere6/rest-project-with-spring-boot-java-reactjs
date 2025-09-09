@@ -19,7 +19,7 @@ import java.util.Objects;
 
     @Column
     private String description;
-    private Long id;
+    //private Long id;
 
     @Override
     public String getAuthority() {

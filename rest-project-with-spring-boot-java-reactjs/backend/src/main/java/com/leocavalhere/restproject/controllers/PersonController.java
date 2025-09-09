@@ -1,7 +1,7 @@
 package com.leocavalhere.restproject.controllers;
 
 import com.leocavalhere.restproject.controllers.docs.PersonControllerDocs;
-import com.leocavalhere.restproject.data.dto.PersonDTO;
+import com.leocavalhere.restproject.data.PersonDTO;
 import com.leocavalhere.restproject.file.exporter.MediaTypes;
 import com.leocavalhere.restproject.services.PersonService;
 import io.swagger.v3.oas.annotations.tags.Tag;

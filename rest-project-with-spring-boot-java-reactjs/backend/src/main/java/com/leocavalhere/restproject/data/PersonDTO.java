@@ -1,6 +1,6 @@
 package com.leocavalhere.restproject.data;
 
-import br.com.erudio.model.Book;
+import com.leocavalhere.restproject.model.Book;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.hateoas.RepresentationModel;
 import org.springframework.hateoas.server.core.Relation;
