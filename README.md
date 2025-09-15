@@ -62,11 +62,7 @@ The **backend** exposes a RESTful API with advanced features, while the **fronte
 - ✅ State management using **React hooks** (`useState`, `useEffect`) and immutability principles
 - ✅ Reusable Components for forms, tables, and headers
 - ✅ Responsive UI with clean **CSS**
-- ✅ Integration with backend API:
-  - Login screen integrated with API authentication  
-  - Book registration & update forms connected to backend  
-  - Book listing with **pagination** and API data loading  
-  - Delete & logout fully integrated with backend  
+- ✅ Integration with backend API
 
 ---
 
