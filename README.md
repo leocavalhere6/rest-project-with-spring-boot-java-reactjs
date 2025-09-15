@@ -116,6 +116,15 @@ Once the backend is running, explore it at:
 👉 http://localhost:8080/swagger-ui.html
 
 ### 🎨 Screenshots
+<img width="1365" height="767" alt="Captura de tela 2025-09-09 090718" src="https://github.com/user-attachments/assets/c39638d5-c44c-41d5-9b29-2360f852798e" />
+<img width="1120" height="739" alt="Captura de tela 2025-09-11 183114" src="https://github.com/user-attachments/assets/4a7c9b28-8eb9-4f20-b3e7-932c42709a2a" />
+<img width="1358" height="727" alt="Captura de tela 2025-09-15 000714" src="https://github.com/user-attachments/assets/f281964b-0994-4879-a971-40225aa6e36b" />
+<img width="532" height="691" alt="Captura de tela 2025-09-15 201910" src="https://github.com/user-attachments/assets/90d3d154-7742-423e-b2ae-a3d0ee8b322f" />
+<img width="1365" height="720" alt="Captura de tela 2025-09-15 202957" src="https://github.com/user-attachments/assets/3a417d3c-490a-4f54-95ee-18b708340f83" />
+
+
+
+
 
 
 ### 👤 Author
