@@ -110,20 +110,20 @@ Frontend → http://localhost:5173
 cd backend
 ./mvnw test
 ```
-📊 API Documentation
+### 📊 API Documentation
 The API is fully documented using Swagger (OpenAPI).
 Once the backend is running, explore it at:
 👉 http://localhost:8080/swagger-ui.html
 
-🎨 Screenshots
+### 🎨 Screenshots
 
 
-👤 Author
+### 👤 Author
 Leo Cavalhere
 Fullstack Developer – Java | Spring Boot | React
 
-🔗 LinkedIn | GitHub
+### 🔗 LinkedIn | GitHub
 
-📌 Nota em Português
+### 📌 Nota em Português
 Este projeto foi desenvolvido com o objetivo de servir como portfólio profissional.
 Ele demonstra habilidades práticas em desenvolvimento Fullstack, cobrindo desde a construção de uma API completa em Java/Spring Boot, até a implementação de um frontend em React e a entrega em nuvem com CI/CD.
