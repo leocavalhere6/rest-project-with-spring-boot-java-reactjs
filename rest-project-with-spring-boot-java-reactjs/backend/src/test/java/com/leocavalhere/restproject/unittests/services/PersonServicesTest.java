@@ -66,37 +66,37 @@ class PersonServicesTest {
         assertNotNull(result.getLinks());
 
         assertNotNull(result.getLinks().stream()
-            .anyMatch(link -> link.getRel().value().equals("self")
-                    && link.getHref().endsWith("/api/person/v1/1")
-                    && link.getType().equals("GET")
-            ));
+                .anyMatch(link -> link.getRel().value().equals("self")
+                        && link.getHref().endsWith("/api/person/v1/1")
+                        && link.getType().equals("GET")
+                ));
 
         assertNotNull(result.getLinks().stream()
-            .anyMatch(link -> link.getRel().value().equals("findAll")
-                    && link.getHref().endsWith("/api/person/v1")
-                    && link.getType().equals("GET")
-            )
+                .anyMatch(link -> link.getRel().value().equals("findAll")
+                        && link.getHref().endsWith("/api/person/v1")
+                        && link.getType().equals("GET")
+                )
         );
 
         assertNotNull(result.getLinks().stream()
-            .anyMatch(link -> link.getRel().value().equals("create")
-                    && link.getHref().endsWith("/api/person/v1")
-                    && link.getType().equals("POST")
-            )
+                .anyMatch(link -> link.getRel().value().equals("create")
+                        && link.getHref().endsWith("/api/person/v1")
+                        && link.getType().equals("POST")
+                )
         );
 
         assertNotNull(result.getLinks().stream()
-            .anyMatch(link -> link.getRel().value().equals("update")
-                    && link.getHref().endsWith("/api/person/v1")
-                    && link.getType().equals("PUT")
-            )
+                .anyMatch(link -> link.getRel().value().equals("update")
+                        && link.getHref().endsWith("/api/person/v1")
+                        && link.getType().equals("PUT")
+                )
         );
 
         assertNotNull(result.getLinks().stream()
-            .anyMatch(link -> link.getRel().value().equals("delete")
-                    && link.getHref().endsWith("/api/person/v1/1")
-                    && link.getType().equals("DELETE")
-            )
+                .anyMatch(link -> link.getRel().value().equals("delete")
+                        && link.getHref().endsWith("/api/person/v1/1")
+                        && link.getType().equals("DELETE")
+                )
         );
 
         assertEquals("Address Test1", result.getAddress());
@@ -164,9 +164,9 @@ class PersonServicesTest {
     @Test
     void testCreateWithNullPerson() {
         Exception exception = assertThrows(RequiredObjectIsNullException.class,
-        () -> {
-            service.create(null);
-        });
+                () -> {
+                    service.create(null);
+                });
 
         String expectedMessage = "It is not allowed to persist a null object!";
         String actualMessage = exception.getMessage();
@@ -269,14 +269,14 @@ class PersonServicesTest {
         // Mocking assembler
         // assembler.toModel(peopleWithLinks, findAllLink);
         List<EntityModel<PersonDTO>> entityModels = mockDtoList.stream()
-            .map(EntityModel::of)
-            .collect(Collectors.toList());
+                .map(EntityModel::of)
+                .collect(Collectors.toList());
 
         PagedModel.PageMetadata pageMetadata = new PagedModel.PageMetadata(
-            mockPage.getSize(),
-            mockPage.getNumber(),
-            mockPage.getTotalElements(),
-            mockPage.getTotalPages()
+                mockPage.getSize(),
+                mockPage.getNumber(),
+                mockPage.getTotalElements(),
+                mockPage.getTotalPages()
         );
 
         PagedModel<EntityModel<PersonDTO>> mockPagedModel = PagedModel.of(entityModels, pageMetadata);
@@ -287,7 +287,7 @@ class PersonServicesTest {
         PagedModel<EntityModel<PersonDTO>> result = service.findAll(PageRequest.of(0, 14));
 
         List<PersonDTO> people = result.getContent()
-            .stream()
+                .stream()
                 .map(EntityModel::getContent)
                 .collect(Collectors.toList());
 

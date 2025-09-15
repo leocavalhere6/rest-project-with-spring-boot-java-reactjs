@@ -18,7 +18,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
-
 @Service
 public class FileStorageService {
 
@@ -28,9 +27,9 @@ public class FileStorageService {
 
     @Autowired
     public FileStorageService(FileStorageConfig fileStorageConfig) {
-        Path path = Paths.get(fileStorageConfig.getUploadDir())
-                         .toAbsolutePath()
-                         .normalize();
+        Path path = Paths.get(fileStorageConfig.getUploadDir()).toAbsolutePath()
+                .toAbsolutePath().normalize();
+
         this.fileStorageLocation = path;
         try {
             logger.info("Creating Directories");
@@ -42,23 +41,23 @@ public class FileStorageService {
     }
 
     public String storeFile(MultipartFile file) {
+
         String fileName = StringUtils.cleanPath(file.getOriginalFilename());
 
         try {
             if (fileName.contains("..")) {
-                logger.error("Sorry! Filename contains an invalid path sequence: " + fileName);
-                throw new FileStorageException("Sorry! Filename contains an invalid path sequence " + fileName);
+                logger.error("Sorry! Filename Contains a Invalid path Sequence " + fileName);
+                throw new FileStorageException("Sorry! Filename Contains a Invalid path Sequence " + fileName);
             }
 
-            logger.info("Saving file on disk");
+            logger.info("Saving file in Disk");
 
             Path targetLocation = this.fileStorageLocation.resolve(fileName);
             Files.copy(file.getInputStream(), targetLocation, StandardCopyOption.REPLACE_EXISTING);
             return fileName;
-
         } catch (Exception e) {
-            logger.error("Could not store file " + fileName + ". Please try again!");
-            throw new FileStorageException("Could not store file " + fileName + ". Please try again!", e);
+            logger.error("Could not store file " + fileName + ". Please try Again!");
+            throw new FileStorageException("Could not store file " + fileName + ". Please try Again!", e);
         }
     }
 

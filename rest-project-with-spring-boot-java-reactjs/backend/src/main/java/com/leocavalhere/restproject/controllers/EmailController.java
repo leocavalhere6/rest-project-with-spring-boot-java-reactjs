@@ -2,7 +2,7 @@ package com.leocavalhere.restproject.controllers;
 
 import com.leocavalhere.restproject.controllers.docs.EmailControllerDocs;
 import com.leocavalhere.restproject.data.dto.request.EmailRequestDTO;
-import com.leocavalhere.restproject.EmailService;
+import com.leocavalhere.restproject.services.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;

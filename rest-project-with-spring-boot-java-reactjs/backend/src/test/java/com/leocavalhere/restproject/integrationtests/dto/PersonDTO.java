@@ -1,6 +1,7 @@
 package com.leocavalhere.restproject.integrationtests.dto;
 
-import br.com.erudio.model.Book;
+
+import com.leocavalhere.restproject.model.Book;
 import jakarta.xml.bind.annotation.XmlRootElement;
 
 import java.io.Serializable;

@@ -1,5 +1,4 @@
-package com.leocavalhere.restproject.data.security;
-
+package com.leocavalhere.restproject.data.dto.security;
 
 import java.io.Serializable;
 import java.util.Date;

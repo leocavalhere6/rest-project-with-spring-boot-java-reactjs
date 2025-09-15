@@ -1,5 +1,4 @@
-package com.leocavalhere.restproject.data.request;
-
+package com.leocavalhere.restproject.data.dto.request;
 
 import java.util.Objects;
 

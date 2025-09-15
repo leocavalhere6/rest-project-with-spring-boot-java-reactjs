@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/test/v1")
 public class TestLogController {
 
-  private Logger logger = LoggerFactory.getLogger(TestLogController.class.getName());
+    private Logger logger = LoggerFactory.getLogger(TestLogController.class.getName());
 
-  @GetMapping
-  public String testLog() {
-    logger.debug("This is an DEBUG log");
-    logger.info("This is an INFO log");
-    logger.warn("This is an WARN log");
-    logger.error("This is an ERROR log");
-    return "Logs generated successfully!";
-  }
+    @GetMapping
+    public String testLog() {
+        logger.debug("This is an DEBUG log");
+        logger.info("This is an INFO log");
+        logger.warn("This is an WARN log");
+        logger.error("This is an ERROR log");
+        return "Logs generated successfully!";
+    }
 }

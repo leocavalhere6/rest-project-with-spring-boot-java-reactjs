@@ -91,22 +91,22 @@ class BookControllerYamlTest extends AbstractIntegrationTest {
         mockBook();
 
         var createdBook = given().config(
-                RestAssuredConfig.config()
-                    .encoderConfig(
-                        EncoderConfig.encoderConfig().
-                            encodeContentTypeAs(MediaType.APPLICATION_YAML_VALUE, ContentType.TEXT))
+                        RestAssuredConfig.config()
+                                .encoderConfig(
+                                        EncoderConfig.encoderConfig().
+                                                encodeContentTypeAs(MediaType.APPLICATION_YAML_VALUE, ContentType.TEXT))
                 ).spec(specification)
-            .contentType(MediaType.APPLICATION_YAML_VALUE)
-            .accept(MediaType.APPLICATION_YAML_VALUE)
+                .contentType(MediaType.APPLICATION_YAML_VALUE)
+                .accept(MediaType.APPLICATION_YAML_VALUE)
                 .body(book, objectMapper)
-            .when()
+                .when()
                 .post()
-            .then()
+                .then()
                 .statusCode(200)
                 .contentType(MediaType.APPLICATION_YAML_VALUE)
-            .extract()
+                .extract()
                 .body()
-                    .as(BookDTO.class, objectMapper);
+                .as(BookDTO.class, objectMapper);
 
         book = createdBook;
 
@@ -130,15 +130,15 @@ class BookControllerYamlTest extends AbstractIntegrationTest {
                                         EncoderConfig.encoderConfig().
                                                 encodeContentTypeAs(MediaType.APPLICATION_YAML_VALUE, ContentType.TEXT))
                 ).spec(specification)
-            .contentType(MediaType.APPLICATION_YAML_VALUE)
-            .accept(MediaType.APPLICATION_YAML_VALUE)
+                .contentType(MediaType.APPLICATION_YAML_VALUE)
+                .accept(MediaType.APPLICATION_YAML_VALUE)
                 .body(book, objectMapper)
-            .when()
+                .when()
                 .put()
-            .then()
+                .then()
                 .statusCode(200)
                 .contentType(MediaType.APPLICATION_YAML_VALUE)
-            .extract()
+                .extract()
                 .body()
                 .as(BookDTO.class, objectMapper);
 
@@ -164,14 +164,14 @@ class BookControllerYamlTest extends AbstractIntegrationTest {
                 ).spec(specification)
                 .contentType(MediaType.APPLICATION_YAML_VALUE)
                 .accept(MediaType.APPLICATION_YAML_VALUE)
-                    .pathParam("id", book.getId())
+                .pathParam("id", book.getId())
                 .when()
-                    .get("{id}")
+                .get("{id}")
                 .then()
-                    .statusCode(200)
-                    .contentType(MediaType.APPLICATION_YAML_VALUE)
+                .statusCode(200)
+                .contentType(MediaType.APPLICATION_YAML_VALUE)
                 .extract()
-                    .body()
+                .body()
                 .as(BookDTO.class, objectMapper);
 
         book = createdBook;
@@ -192,9 +192,9 @@ class BookControllerYamlTest extends AbstractIntegrationTest {
 
         given(specification)
                 .pathParam("id", book.getId())
-            .when()
+                .when()
                 .delete("{id}")
-            .then()
+                .then()
                 .statusCode(204);
     }
 

@@ -1,5 +1,4 @@
-package com.leocavalhere.restproject.data.security;
-
+package com.leocavalhere.restproject.data.dto.security;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -18,6 +17,11 @@ public class AccountCredentialsDTO implements Serializable {
         this.username = username;
         this.password = password;
         this.fullname = fullname;
+    }
+
+    public AccountCredentialsDTO(String username, String password) {
+        this.username = username;
+        this.password = password;
     }
 
     public String getUsername() {

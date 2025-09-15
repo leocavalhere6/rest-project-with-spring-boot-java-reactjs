@@ -17,7 +17,6 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-
 @ExtendWith(SpringExtension.class)
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
@@ -31,42 +30,42 @@ class PersonRepositoryTest extends AbstractIntegrationTest {
 
     @BeforeAll
     static void setUp() {
-      person = new Person();
+        person = new Person();
     }
 
     @Test
     @Order(1)
     void findPeopleByName() {
-      Pageable pageable = PageRequest.of(
-        0,
-        12,
-        Sort.by(Sort.Direction.ASC, "firstName"));
+        Pageable pageable = PageRequest.of(
+                0,
+                12,
+                Sort.by(Sort.Direction.ASC, "firstName"));
 
-      person = repository.findPeopleByName("iko", pageable).getContent().get(0);
+        person = repository.findPeopleByName("iko", pageable).getContent().get(0);
 
-      assertNotNull(person);
-      assertNotNull(person.getId());
-      assertEquals("Nikola", person.getFirstName());
-      assertEquals("Tesla", person.getLastName());
-      assertEquals("Male", person.getGender());
-      assertTrue(person.getEnabled());
+        assertNotNull(person);
+        assertNotNull(person.getId());
+        assertEquals("Nikola", person.getFirstName());
+        assertEquals("Tesla", person.getLastName());
+        assertEquals("Male", person.getGender());
+        assertTrue(person.getEnabled());
     }
 
     @Test
     @Order(2)
     void disablePerson() {
 
-      Long id = person.getId();
-      repository.disablePerson(id);
+        Long id = person.getId();
+        repository.disablePerson(id);
 
-      var result = repository.findById(id);
-      person = result.get();
+        var result = repository.findById(id);
+        person = result.get();
 
-      assertNotNull(person);
-      assertNotNull(person.getId());
-      assertEquals("Nikola", person.getFirstName());
-      assertEquals("Tesla", person.getLastName());
-      assertEquals("Male", person.getGender());
-      assertFalse(person.getEnabled());
+        assertNotNull(person);
+        assertNotNull(person.getId());
+        assertEquals("Nikola", person.getFirstName());
+        assertEquals("Tesla", person.getLastName());
+        assertEquals("Male", person.getGender());
+        assertFalse(person.getEnabled());
     }
-  }
+}

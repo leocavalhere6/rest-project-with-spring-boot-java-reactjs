@@ -1,7 +1,7 @@
 package com.leocavalhere.restproject.services;
 
 import com.leocavalhere.restproject.config.EmailConfig;
-import com.leocavalhere.restproject.data.request.EmailRequestDTO;
+import com.leocavalhere.restproject.data.dto.request.EmailRequestDTO;
 import com.leocavalhere.restproject.mail.EmailSender;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -13,46 +13,43 @@ import java.io.File;
 import java.io.IOException;
 
 @Service
-
 public class EmailService {
 
-  @Autowired
-  private EmailConfig emailConfigs;
+    @Autowired
+    private EmailSender emailSender;
 
-  @Autowired
-  private EmailSender emailSender;
+    @Autowired
+    private EmailConfig emailConfigs;
 
+    public void sendSimpleEmail(EmailRequestDTO emailRequest) {
+        emailSender
+                .to(emailRequest.getTo())
+                .withSubject(emailRequest.getSubject())
+                .withMessage(emailRequest.getSubject())
+                .send(emailConfigs);
+    }
 
-  public void sendSimpleEmail(EmailRequestDTO emailRequest) {
-      emailSender
-        .to(emailRequest.getTo())
-        .withSubject(emailRequest.getSubject())
-        .withMessage(emailRequest.getSubject())
-        .send(emailConfigs);
-    
-  }
+    public void setEmailWithAttachment(String emailRequestJson, MultipartFile attachment) {
+        File tempFile = null;
+        try {
+            EmailRequestDTO emailRequest = new ObjectMapper().readValue(emailRequestJson, EmailRequestDTO.class);
+            tempFile = File.createTempFile("attachment", attachment.getOriginalFilename());
+            attachment.transferTo(tempFile);
 
-   public void setEmailWithAttachment(String emailRequestJson, MultipartFile attachment) {
-     File tempFile = null;
+            emailSender
+                    .to(emailRequest.getTo())
+                    .withSubject(emailRequest.getSubject())
+                    .withMessage(emailRequest.getSubject())
+                    .attach(tempFile.getAbsolutePath())
+                    .send(emailConfigs);
 
-     try {
-       EmailRequestDTO emailRequest = new ObjectMapper().readValue(emailRequestJson, EmailRequestDTO.class);
-       tempFile = File.createTempFile("attachment", attachment.getOriginalFilename());
-       attachment.transferTo(tempFile);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException("Error parsing email request JSON!", e);
+        } catch (IOException e) {
+            throw new RuntimeException("Error processing the attachment!", e);
+        } finally {
+            if (tempFile != null && tempFile.exists()) tempFile.delete();
+        }
 
-       emailSender
-           .to(emailRequest.getTo())
-           .withSubject(emailRequest.getSubject())
-           .withMessage(emailRequest.getSubject())
-           .attach(tempFile.getAbsolutePath())
-           .send(emailConfigs);
-
-       } catch (JsonProcessingException e) {
-         throw new RuntimeException("Error parsing email request JSON!", e);
-       } catch (IOException e) {
-         throw new RuntimeException("Error processing the attachment!", e);
-       } finally {
-         if (tempFile != null && tempFile.exists()) tempFile.delete();
-       }
-   }
+    }
 }

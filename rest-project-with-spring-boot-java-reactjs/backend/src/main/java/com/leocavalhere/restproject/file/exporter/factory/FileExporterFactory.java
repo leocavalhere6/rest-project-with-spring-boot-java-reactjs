@@ -15,21 +15,21 @@ import org.springframework.stereotype.Component;
 @Component
 public class FileExporterFactory {
 
-  private Logger logger = LoggerFactory.getLogger(FileExporterFactory.class);
+    private Logger logger = LoggerFactory.getLogger(FileExporterFactory.class);
 
-  @Autowired
-  private ApplicationContext context;
+    @Autowired
+    private ApplicationContext context;
 
-  public PersonExporter getExporter(String acceptHeader) throws Exception {
-    if (acceptHeader.equalsIgnoreCase(MediaTypes.APPLICATION_XLSX_VALUE)) {
-      return context.getBean(XlsxExporter.class);
-    } else if (acceptHeader.equalsIgnoreCase(MediaTypes.APPLICATION_CSV_VALUE)) {
-      return context.getBean(CsvExporter.class);
-    } else if (acceptHeader.equalsIgnoreCase(MediaTypes.APPLICATION_PDF_VALUE)) {
-      return context.getBean(PdfExporter.class);
-    } else {
-      throw new BadRequestException("Invalid File Format!");
+    public PersonExporter getExporter(String acceptHeader) throws Exception {
+        if (acceptHeader.equalsIgnoreCase(MediaTypes.APPLICATION_XLSX_VALUE)) {
+            return context.getBean(XlsxExporter.class);
+        } else if (acceptHeader.equalsIgnoreCase(MediaTypes.APPLICATION_CSV_VALUE)) {
+            return context.getBean(CsvExporter.class);
+        } else if (acceptHeader.equalsIgnoreCase(MediaTypes.APPLICATION_PDF_VALUE)) {
+            return context.getBean(PdfExporter.class);
+        } else {
+            throw new BadRequestException("Invalid File Format!");
+        }
     }
-  }
 
 }

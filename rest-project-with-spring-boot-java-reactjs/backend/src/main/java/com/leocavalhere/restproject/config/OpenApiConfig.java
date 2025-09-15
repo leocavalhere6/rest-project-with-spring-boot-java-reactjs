@@ -10,16 +10,16 @@ import org.springframework.context.annotation.Configuration;
 public class OpenApiConfig {
 
     @Bean
-    public OpenAPI customOpenAPI() {
+    OpenAPI customOpenAPI(){
         return new OpenAPI()
                 .info(new Info()
-                        .title("RESTful API with Java 17 and Spring Boot 3")
+                        .title("REST API's RESTful from 0 with Java, Spring Boot, Kubernetes and Docker")
                         .version("v1")
-                        .description("RESTful API with Java 17 and Spring Boot 3")
-                        .termsOfService("https://github.com/leocavalhere/rest-project-with-spring-boot-java-reactjs")
+                        .description("REST API's RESTful from 0 with Java, Spring Boot, Kubernetes and Docker")
+                        .termsOfService("https://Leonardo.cavalhere.com.br/meuscursos")
                         .license(new License()
                                 .name("Apache 2.0")
-                                .url("https://github.com/leocavalhere/rest-project-with-spring-boot-java-reactjs")
+                                .url("https://Leonardo.cavalhere.com.br/meuscursos")
                         )
                 );
     }

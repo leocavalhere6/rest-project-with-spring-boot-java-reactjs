@@ -13,21 +13,19 @@ import org.springframework.stereotype.Component;
 @Component
 public class FileImporterFactory {
 
-  private Logger logger = LoggerFactory.getLogger(FileImporterFactory.class);
+    private Logger logger = LoggerFactory.getLogger(FileImporterFactory.class);
 
-  @Autowired
-  private ApplicationContext context;
+    @Autowired
+    private ApplicationContext context;
 
-  public FileImporter getImporter(String fileName) throws Exception {
-    if (fileName.endsWith(".xlsx")) {
-      return context.getBean(XlsxImporter.class);
-    } else if (fileName.endsWith(".csv")) {
-      return context.getBean(CsvImporter.class);
-    } else {
-      throw new BadRequestException("Invalid File Format!");
-
-      // logger.error("Invalid File Format!");
+    public FileImporter getImporter(String fileName) throws Exception {
+        if (fileName.endsWith(".xlsx")) {
+            return context.getBean(XlsxImporter.class);
+        } else if (fileName.endsWith(".csv")) {
+            return context.getBean(CsvImporter.class);
+        } else {
+            throw new BadRequestException("Invalid File Format!");
+        }
     }
-  }
 
 }

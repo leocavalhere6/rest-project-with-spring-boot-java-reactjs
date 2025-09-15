@@ -7,7 +7,5 @@ import java.util.List;
 
 public interface FileImporter {
 
-  
-  List<PersonDTO> importFile(InputStream inputStream) throws Exception;
-
+    List<PersonDTO> importFile(InputStream inputStream) throws Exception;
 }

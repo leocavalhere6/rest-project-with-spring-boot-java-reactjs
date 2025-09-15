@@ -1,6 +1,8 @@
 package com.leocavalhere.restproject.controllers.docs;
 
 
+import com.leocavalhere.restproject.data.dto.PersonDTO;
+import com.leocavalhere.restproject.file.exporter.MediaTypes;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -8,7 +10,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.core.io.Resource;
-import org.springframework.data.domain.Page;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.PagedModel;
 import org.springframework.http.MediaType;
@@ -54,8 +55,8 @@ public interface PersonControllerDocs {
                             description = "Success",
                             responseCode = "200",
                             content = {
-                                @Content(mediaType = MediaTypes.APPLICATION_XLSX_VALUE),
-                                @Content(mediaType = MediaTypes.APPLICATION_CSV_VALUE)
+                                    @Content(mediaType = MediaTypes.APPLICATION_XLSX_VALUE),
+                                    @Content(mediaType = MediaTypes.APPLICATION_CSV_VALUE)
                             }),
                     @ApiResponse(description = "No Content", responseCode = "204", content = @Content),
                     @ApiResponse(description = "Bad Request", responseCode = "400", content = @Content),
@@ -76,11 +77,11 @@ public interface PersonControllerDocs {
             tags = {"People"},
             responses = {
                     @ApiResponse(
-                        description = "Success",
-                        responseCode = "200",
-                        content = {
-                            @Content(schema = @Schema(implementation = PersonDTO.class))
-                        }),
+                            description = "Success",
+                            responseCode = "200",
+                            content = {
+                                    @Content(schema = @Schema(implementation = PersonDTO.class))
+                            }),
                     @ApiResponse(description = "No Content", responseCode = "204", content = @Content),
                     @ApiResponse(description = "Bad Request", responseCode = "400", content = @Content),
                     @ApiResponse(description = "Unauthorized", responseCode = "401", content = @Content),
@@ -140,9 +141,9 @@ public interface PersonControllerDocs {
             tags = {"People"},
             responses = {
                     @ApiResponse(
-                        description = "Success",
-                        responseCode = "200",
-                        content = @Content(mediaType = MediaTypes.APPLICATION_PDF_VALUE)),
+                            description = "Success",
+                            responseCode = "200",
+                            content = @Content(mediaType = MediaTypes.APPLICATION_PDF_VALUE)),
                     @ApiResponse(description = "No Content", responseCode = "204", content = @Content),
                     @ApiResponse(description = "Bad Request", responseCode = "400", content = @Content),
                     @ApiResponse(description = "Unauthorized", responseCode = "401", content = @Content),

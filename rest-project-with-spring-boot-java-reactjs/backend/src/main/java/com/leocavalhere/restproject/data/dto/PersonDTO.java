@@ -1,14 +1,13 @@
-package com.leocavalhere.restproject.data;
+package com.leocavalhere.restproject.data.dto;
 
-import com.leocavalhere.restproject.model.Book;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.leocavalhere.restproject.model.Book;
 import org.springframework.hateoas.RepresentationModel;
 import org.springframework.hateoas.server.core.Relation;
 
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
-
 
 @Relation(collectionRelation = "people")
 public class PersonDTO extends RepresentationModel<PersonDTO> implements Serializable {
@@ -81,7 +80,7 @@ public class PersonDTO extends RepresentationModel<PersonDTO> implements Seriali
     @JsonIgnore
     public String getName(){
         return (firstName != null ? firstName : "") +
-            (lastName != null ? " " + lastName : "");
+                (lastName != null ? " " + lastName : "");
     }
 
     public String getProfileUrl() {

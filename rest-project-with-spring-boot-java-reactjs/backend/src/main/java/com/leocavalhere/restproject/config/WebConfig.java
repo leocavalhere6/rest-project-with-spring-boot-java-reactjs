@@ -7,33 +7,34 @@ import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-  
+
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
-  
-  @Value("${cors.originPatterns:default}")
-  private String corsOriginPatterns = "";
 
-  public void addCorsMappings(CorsRegistry registry) {
-     
-    var allowedOrigins = corsOriginPatterns.split(",");
-    
-    registry.addMapping("/**")
-      .allowedOrigins(allowedOrigins)
-      //.allowedMethods("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS", "HEAD", "TRACE"); 
-      .allowedMethods("*")
-       .allowCredentials(true);
-      
-  }
+    @Value("${cors.originPatterns:default}")
+    private String corsOriginPatterns = "";
 
-  @Override
-  public void configureContentNegotiation(ContentNegotiationConfigurer Configurer) {
-    configurer.favorPathExtension(false)
-      .favorParamenter(false)
-      .ignoreAcceptHenader(false)
-      .defaultContentType(MediaType.APPLICATION_JSON)
-      .mediaType("json",Mediatype.APPLICATON_JSON)
-      .mediaType("xml",MediaType.APPLICATION_XML)
-      .mediaType("x-yaml", MEDIA_TYPE_YML);
-  }
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        var allowedOrigins = corsOriginPatterns.split(",");
+        registry.addMapping("/**")
+                .allowedOrigins(allowedOrigins)
+                //.allowedMethods("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS")
+                .allowedMethods("*")
+                .allowCredentials(true);
+    }
+
+    @Override
+    public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
+
+        // Via HEADER PARAM http://localhost:8080/api/person/v1/2
+        configurer.favorParameter(false)
+                .ignoreAcceptHeader(false)
+                .useRegisteredExtensionsOnly(false)
+                .defaultContentType(MediaType.APPLICATION_JSON)
+                .mediaType("json", MediaType.APPLICATION_JSON)
+                .mediaType("xml", MediaType.APPLICATION_XML)
+                .mediaType("yaml", MediaType.APPLICATION_YAML)
+        ;
+    }
 }

@@ -26,20 +26,20 @@ class AuthControllerJsonTest extends AbstractIntegrationTest {
     @Order(1)
     void signin() {
         AccountCredentialsDTO credentials =
-            new AccountCredentialsDTO("leandro", "admin123");
+                new AccountCredentialsDTO("leandro", "admin123");
 
         tokenDto = given()
                 .basePath("/auth/signin")
-                    .port(TestConfigs.SERVER_PORT)
-                    .contentType(MediaType.APPLICATION_JSON_VALUE)
+                .port(TestConfigs.SERVER_PORT)
+                .contentType(MediaType.APPLICATION_JSON_VALUE)
                 .body(credentials)
-                    .when()
+                .when()
                 .post()
-                    .then()
-                    .statusCode(200)
-                        .extract()
-                        .body()
-                        .as(TokenDTO.class);
+                .then()
+                .statusCode(200)
+                .extract()
+                .body()
+                .as(TokenDTO.class);
 
         assertNotNull(tokenDto.getAccessToken());
         assertNotNull(tokenDto.getRefreshToken());
@@ -52,15 +52,15 @@ class AuthControllerJsonTest extends AbstractIntegrationTest {
                 .basePath("/auth/refresh")
                 .port(TestConfigs.SERVER_PORT)
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
-                    .pathParam("username", tokenDto.getUsername())
-                    .header(TestConfigs.HEADER_PARAM_AUTHORIZATION, "Bearer " + tokenDto.getRefreshToken())
+                .pathParam("username", tokenDto.getUsername())
+                .header(TestConfigs.HEADER_PARAM_AUTHORIZATION, "Bearer " + tokenDto.getRefreshToken())
                 .when()
-                    .put("{username}")
-                        .then()
-                        .statusCode(200)
-                            .extract()
-                            .body()
-                            .as(TokenDTO.class);
+                .put("{username}")
+                .then()
+                .statusCode(200)
+                .extract()
+                .body()
+                .as(TokenDTO.class);
 
         assertNotNull(tokenDto.getAccessToken());
         assertNotNull(tokenDto.getRefreshToken());

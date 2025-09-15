@@ -34,20 +34,20 @@ class AuthControllerXmlTest extends AbstractIntegrationTest {
     @Order(1)
     void signin() throws JsonProcessingException {
         AccountCredentialsDTO credentials =
-            new AccountCredentialsDTO("leandro", "admin123");
+                new AccountCredentialsDTO("leandro", "admin123");
 
         var content = given()
                 .basePath("/auth/signin")
-                    .port(TestConfigs.SERVER_PORT)
-                    .contentType(MediaType.APPLICATION_XML_VALUE)
-                    .accept(MediaType.APPLICATION_XML_VALUE)
+                .port(TestConfigs.SERVER_PORT)
+                .contentType(MediaType.APPLICATION_XML_VALUE)
+                .accept(MediaType.APPLICATION_XML_VALUE)
                 .body(credentials)
-                    .when()
+                .when()
                 .post()
-                    .then()
-                    .statusCode(200)
-                        .extract()
-                        .body()
+                .then()
+                .statusCode(200)
+                .extract()
+                .body()
                 .asString();
 
         tokenDto = objectMapper.readValue(content, TokenDTO.class);
@@ -64,14 +64,14 @@ class AuthControllerXmlTest extends AbstractIntegrationTest {
                 .port(TestConfigs.SERVER_PORT)
                 .contentType(MediaType.APPLICATION_XML_VALUE)
                 .accept(MediaType.APPLICATION_XML_VALUE)
-                    .pathParam("username", tokenDto.getUsername())
-                    .header(TestConfigs.HEADER_PARAM_AUTHORIZATION, "Bearer " + tokenDto.getRefreshToken())
+                .pathParam("username", tokenDto.getUsername())
+                .header(TestConfigs.HEADER_PARAM_AUTHORIZATION, "Bearer " + tokenDto.getRefreshToken())
                 .when()
-                    .put("{username}")
-                        .then()
-                        .statusCode(200)
-                            .extract()
-                            .body()
+                .put("{username}")
+                .then()
+                .statusCode(200)
+                .extract()
+                .body()
                 .asString();
 
         tokenDto = objectMapper.readValue(content, TokenDTO.class);

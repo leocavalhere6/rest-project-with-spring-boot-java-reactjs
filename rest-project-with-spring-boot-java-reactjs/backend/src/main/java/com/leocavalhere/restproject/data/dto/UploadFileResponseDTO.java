@@ -1,4 +1,4 @@
-package com.leocavalhere.restproject.data;
+package com.leocavalhere.restproject.data.dto;
 
 import java.io.Serializable;
 import java.util.Objects;
